@@ -2,9 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1f465efb-07e4-4c01-a4c2-075254439888" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/lab2_solution/appJS/Threaddy.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/lab2_solution/appJS/lab2_solution.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
+    <ignored path="out/" />
+    <ignored path="lab2_solution.iml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -31,7 +36,7 @@
         <entry file="file://$PROJECT_DIR$/.gitignore">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="45">
-              <caret line="3" column="5" lean-forward="true" selection-start-line="3" selection-start-column="5" selection-end-line="3" selection-end-column="5" />
+              <caret line="3" column="6" lean-forward="true" selection-start-line="3" selection-start-column="6" selection-end-line="3" selection-end-column="6" />
             </state>
           </provider>
         </entry>
@@ -95,6 +100,7 @@
         <option value="$PROJECT_DIR$/src/appJS/lab2_solution.js" />
         <option value="$PROJECT_DIR$/src/app/lab2_solution.java" />
         <option value="$PROJECT_DIR$/src/.gitignore" />
+        <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
   </component>
@@ -153,6 +159,11 @@
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last.edited.regexp" value="(10,20)" />
     <property name="settings.editor.selected.configurable" value="Settings.JavaScript.Linters.JSLint" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -273,12 +284,12 @@
       <workItem from="1527183899721" duration="2577000" />
       <workItem from="1527662636944" duration="14000" />
       <workItem from="1527955330462" duration="3412000" />
-      <workItem from="1527978907819" duration="1264000" />
+      <workItem from="1527978907819" duration="1520000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="30334000" />
+    <option name="totallyTimeSpent" value="30590000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1280" height="800" extended-state="0" />
@@ -291,9 +302,9 @@
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
       <window_info anchor="right" id="Maven Projects" order="3" />
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
-      <window_info active="true" anchor="bottom" id="Version Control" order="7" visible="true" weight="0.328877" />
+      <window_info anchor="bottom" id="Version Control" order="7" weight="0.328877" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.328877" />
-      <window_info anchor="bottom" id="Terminal" order="7" weight="0.328877" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="7" visible="true" weight="0.328877" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Designer" order="2" />
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25" />
@@ -682,7 +693,7 @@
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="45">
-          <caret line="3" column="5" lean-forward="true" selection-start-line="3" selection-start-column="5" selection-end-line="3" selection-end-column="5" />
+          <caret line="3" column="6" lean-forward="true" selection-start-line="3" selection-start-column="6" selection-end-line="3" selection-end-column="6" />
         </state>
       </provider>
     </entry>
