@@ -40,18 +40,22 @@ public class lab2_solution implements Runnable {
             for (int i = 0; i < NUM_QUEUES; i++) {
                 runningQueues[i] = new ArrayList();
             }
+            /**
+             * Getting the values from the file and pushing a new Threaddy object
+             * in the corresponding Priority queue
+             *
+             */
             while ((line = reader.readLine()) != null) {
                 THREADNAME = line.substring(0, line.indexOf("["));
                 PRIORITY = Integer.valueOf(line.substring(line.indexOf("[") + 1, line.indexOf("]")));
                 ARRIVAL_TIME = Integer.valueOf(line.substring(line.indexOf(":") + 2, line.indexOf(",")));
                 BURSTS = line.substring(line.indexOf(",") + 1, line.length());
-                waitingQueue.add(new Threaddy(THREADNAME, PRIORITY, ARRIVAL_TIME, BURSTS));
-                /**
-                 Creating a new Threaddy object with the arguments given and pushing it into a List
-                 */
-
-
+                for (int i = 0; i < NUM_QUEUES; i++) {
+                    if (i == PRIORITY) runningQueues[i].add(new Threaddy(THREADNAME, PRIORITY, ARRIVAL_TIME, BURSTS));
+                }
             }
+
+
         } catch (IOException e) {
             e.printStackTrace();
         }
