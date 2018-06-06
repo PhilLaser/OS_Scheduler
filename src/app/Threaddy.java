@@ -5,6 +5,7 @@ import java.util.List;
 
 public class Threaddy {
 
+    private State state;
     private String name;
     private int priority;
     private int arrivalTime;
@@ -13,10 +14,12 @@ public class Threaddy {
     private List<Integer> CPUBurstList;
     private List<Integer> IOBurstList;
 
-    Threaddy(String name, int priority, int arrivalTime, String bursts){
+
+    Threaddy(String name, int priority, int arrivalTime, String bursts) {
         this.name = name;
         this.priority = priority;
         this.arrivalTime = arrivalTime;
+        this.state = State.RUNNING;
         /**
          * Splitting up the bursts array into two separate arrays
          * and removing unnecessary parentheses etc.
@@ -27,9 +30,9 @@ public class Threaddy {
         this.IOBurstList = new ArrayList<>();
 
         for (int i = 0; i < array.length; i++) {
-            if (this.array[i].contains("(")){
+            if (this.array[i].contains("(")) {
                 this.array[i] = this.array[i].replace("(", "");
-            }else if (this.array[i].contains(")")){
+            } else if (this.array[i].contains(")")) {
                 this.array[i] = this.array[i].replace(")", "");
             }
             if (i % 2 != 0) this.IOBurstList.add(Integer.valueOf(this.array[i]));
@@ -38,6 +41,14 @@ public class Threaddy {
 
 
         }
+    }
+
+    public State getState() {
+        return state;
+    }
+
+    public void setState(State state) {
+        this.state = state;
     }
 
     public String getName() {

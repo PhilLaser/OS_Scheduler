@@ -4,11 +4,13 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.*;
-import java.util.Queue;
+import java.util.ArrayList;
+import java.util.List;
 
 
-public class lab2_solution implements Runnable {
+public class lab2_solution {
+
+
     private static final int NUM_QUEUES = 15;
     private static String THREADNAME;
     private static int PRIORITY;
@@ -55,7 +57,6 @@ public class lab2_solution implements Runnable {
                 }
             }
 
-
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -63,12 +64,10 @@ public class lab2_solution implements Runnable {
 
     }
 
-    private static Threaddy getMaxPrioThreaddy () {
+    /*private static Threaddy getMaxPrioThreaddy() {
         return waitingQueue.stream().max(Comparator.comparingInt(Threaddy::getPriority)).get();
-    }
+    }*/
 
-    @Override
-    public void run() {
 
-    }
+
 }
