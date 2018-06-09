@@ -9,37 +9,48 @@ public class Threaddy {
     private String name;
     private int priority;
     private int arrivalTime;
-    private String bursts;
-    private String[] array;
-    private List<Integer> CPUBurstList;
-    private List<Integer> IOBurstList;
+    private List<Burst> bursts;
+    private int timeAlive;
+    private boolean isCurrentThreaddy;
 
 
-    Threaddy(String name, int priority, int arrivalTime, String bursts) {
+    Threaddy(String name, int priority, int arrivalTime, List<Burst> bursts) {
         this.name = name;
         this.priority = priority;
         this.arrivalTime = arrivalTime;
+        this.bursts = bursts;
         this.state = State.RUNNING;
-        /**
-         * Splitting up the bursts array into two separate arrays
-         * and removing unnecessary parentheses etc.
-         */
-        this.bursts = bursts.replaceAll("\\s", "");
-        this.array = this.bursts.split(",");
-        this.CPUBurstList = new ArrayList<>();
-        this.IOBurstList = new ArrayList<>();
 
-        for (int i = 0; i < array.length; i++) {
-            if (this.array[i].contains("(")) {
-                this.array[i] = this.array[i].replace("(", "");
-            } else if (this.array[i].contains(")")) {
-                this.array[i] = this.array[i].replace(")", "");
+
+    }
+
+    public State run() {
+        State burstState;
+        if (isCurrentThreaddy) {
+            burstState = bursts.get(0).run();
+            checkBursts(burstState);
+            if (burstState == State.BLOCKED) {
+                setState(State.BLOCKED);
             }
-            if (i % 2 != 0) this.IOBurstList.add(Integer.valueOf(this.array[i]));
+            timeAlive++;
+        } else {
+            if (state == State.BLOCKED) {
+                burstState = bursts.get(0).run();
+                checkBursts(burstState);
+                timeAlive++;
+            } else {
+                timeAlive++;
+            }
+        }
+        return getState();
+    }
 
-            else this.CPUBurstList.add(Integer.valueOf(this.array[i]));
-
-
+    private void checkBursts(State burstState) {
+        if (burstState == State.FINISHED) {
+            bursts.remove(0);
+            if (bursts.isEmpty()) {
+                setState(State.FINISHED);
+            } else setState(State.RUNNING);
         }
     }
 
@@ -75,19 +86,4 @@ public class Threaddy {
         this.arrivalTime = arrivalTime;
     }
 
-    public List<Integer> getCPUBurstList() {
-        return CPUBurstList;
-    }
-
-    public void setCPUBurstList(List<Integer> CPUBurstList) {
-        this.CPUBurstList = CPUBurstList;
-    }
-
-    public List<Integer> getIOBurstList() {
-        return IOBurstList;
-    }
-
-    public void setIOBurstList(List<Integer> IOBurstList) {
-        this.IOBurstList = IOBurstList;
-    }
 }

@@ -1,14 +1,27 @@
 package app;
 
-public abstract class Burst implements Runnable {
-    int timer;
+public class Burst {
+
+    private int cpuBurst, ioBurst;
 
 
-    public void setTimer(int timer) {
-        this.timer = timer;
+    Burst(int CPUBurst, int IOBurst) {
+        this.cpuBurst = CPUBurst;
+        this.ioBurst = IOBurst;
+
     }
 
-    public int getTimer() {
-        return timer;
+
+    public State run() {
+        if (cpuBurst != 0) {
+            cpuBurst--;
+            if (cpuBurst == 0 && ioBurst == 0) return State.FINISHED;
+            if (cpuBurst == 0) return State.BLOCKED;
+            else return State.RUNNING;
+        } else {
+            ioBurst--;
+            if (ioBurst == 0) return State.FINISHED;
+            return State.BLOCKED;
+        }
     }
 }
