@@ -1,6 +1,5 @@
 package app;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class Threaddy {
@@ -11,7 +10,6 @@ public class Threaddy {
     private int arrivalTime;
     private List<Burst> bursts;
     private int timeAlive;
-    private boolean isCurrentThreaddy;
 
 
     Threaddy(String name, int priority, int arrivalTime, List<Burst> bursts) {
@@ -24,7 +22,7 @@ public class Threaddy {
 
     }
 
-    public State run() {
+    public State run(boolean isCurrentThreaddy) {
         State burstState;
         if (isCurrentThreaddy) {
             burstState = bursts.get(0).run();
@@ -33,16 +31,18 @@ public class Threaddy {
                 setState(State.BLOCKED);
             }
             timeAlive++;
-        } else {
-            if (state == State.BLOCKED) {
+        } else if (state == State.BLOCKED) {
                 burstState = bursts.get(0).run();
                 checkBursts(burstState);
                 timeAlive++;
             } else {
                 timeAlive++;
             }
-        }
         return getState();
+    }
+
+    public void live() {
+        timeAlive++;
     }
 
     private void checkBursts(State burstState) {
@@ -62,14 +62,6 @@ public class Threaddy {
         this.state = state;
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
     int getPriority() {
         return priority;
     }
@@ -86,4 +78,15 @@ public class Threaddy {
         this.arrivalTime = arrivalTime;
     }
 
+    public int getTimeAlive() {
+        return timeAlive;
+    }
+
+    public void setTimeAlive(int timeAlive) {
+        this.timeAlive = timeAlive;
+    }
+
+    public String getName() {
+        return name;
+    }
 }

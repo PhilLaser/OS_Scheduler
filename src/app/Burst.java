@@ -17,7 +17,7 @@ public class Burst {
             cpuBurst--;
             if (cpuBurst == 0 && ioBurst == 0) return State.FINISHED;
             if (cpuBurst == 0) return State.BLOCKED;
-            else return State.RUNNING;
+            return State.RUNNING;
         } else {
             ioBurst--;
             if (ioBurst == 0) return State.FINISHED;
