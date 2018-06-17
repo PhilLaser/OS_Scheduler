@@ -27,11 +27,6 @@ public class lab2_solution {
 
     private static String line = "";
 
-    private static String bursts;
-    private static String[] array;
-    private static List<Integer> CPUBurstList;
-    private static List<Integer> IOBurstList;
-
     private static Threaddy current;
     private static int countQuantum = 0;
     private static int countContextSwitchTime = 0;
@@ -66,10 +61,10 @@ public class lab2_solution {
                  * Splitting up the bursts array into two separate arrays
                  * and removing unnecessary parentheses etc.
                  */
-                bursts = BURSTS.replaceAll("\\s", "");
-                array = bursts.split(",");
-                CPUBurstList = new ArrayList<>();
-                IOBurstList = new ArrayList<>();
+                String bursts = BURSTS.replaceAll("\\s", "");
+                String[] array = bursts.split(",");
+                List<Integer> CPUBurstList = new ArrayList<>();
+                List<Integer> IOBurstList = new ArrayList<>();
 
                 for (int i = 0; i < array.length; i++) {
                     if (array[i].contains("(")) {
