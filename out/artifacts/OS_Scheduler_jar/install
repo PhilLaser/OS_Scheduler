@@ -1,0 +1,30 @@
+#!/bin/bash
+
+read -p "Is Java already installed? (y/n) " -n 1 -r
+echo    # (optional) move to a new line
+if [[ $REPLY =~ ^[Yy]$ ]]
+then
+apt-get install curl -y
+mkdir /opt/lab2_solution
+cd /opt/lab2_solution/
+wget https://github.com/PhilLaser/OS_Scheduler/blob/master/out/artifacts/OS_Scheduler_jar/lab2_solution.jar?raw=true 
+curl https://raw.githubusercontent.com/PhilLaser/OS_Scheduler/master/out/artifacts/OS_Scheduler_jar/stub.sh > stub.sh
+mv lab2_solution.jar\?raw\=true lab2_solution.jar
+chmod a+rw stub.sh
+chmod u+x stub.sh
+
+cat stub.sh lab2_solution.jar > lab2_solution && chmod +x lab2_solution
+ln -s /opt/lab2_solution/lab2_solution /bin/lab2_solution
+else
+apt-get install default-jre -y
+apt-get install curl -y
+mkdir /opt/lab2_solution
+cd /opt/lab2_solution
+wget https://github.com/PhilLaser/OS_Scheduler/blob/master/out/artifacts/OS_Scheduler_jar/lab2_solution.jar?raw=true 
+curl https://raw.githubusercontent.com/PhilLaser/OS_Scheduler/master/out/artifacts/OS_Scheduler_jar/stub.sh > stub.sh
+mv lab2_solution.jar\?raw\=true lab2_solution.jar
+chmod a+rw stub.sh
+chmod u+x stub.sh
+cat stub.sh lab2_solution.jar > lab2_solution && chmod +x lab2_solution
+ln -s /opt/lab2_solution/lab2_solution /bin/lab2_solution
+fi
